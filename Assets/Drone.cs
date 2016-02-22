@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using SimpleJSON;
 
 public class Drone : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class Drone : MonoBehaviour
 	void Start ()
 	{
 		isOrbiting = false;
+		//ry JSON parsing tests
+		string jsonString = "{\"A\": 1}";
+		var json = JSON.Parse(jsonString);
+		Debug.Log(json);
 	
 	}
 	
