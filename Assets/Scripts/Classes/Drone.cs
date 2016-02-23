@@ -61,14 +61,14 @@ public class Drone : MonoBehaviour
 	
 	}
 
-	public void startOrbiting () {
+	void startOrbiting () {
 		isOrbiting = true;
 	}
 
-	public void fire () {
+	void fire () {
 	}
 
-	public void orbit (GameObject target) {
+	void orbit (GameObject target) {
 	}
 }
 
