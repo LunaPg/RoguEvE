@@ -2,90 +2,85 @@
 using System.Collections;
 
 public class CommandMenu : MonoBehaviour {
-	public GameObject drone;
+	public GameObject origin;
 	public GameObject target;
-	bool dragging;
-	public bool isOpen = false;
-	public Vector3 lineStart;
-	public Vector3 lineEnd;
-	GameObject line;
-	LineRenderer lr;
+	GameObject menu;
+	public bool dragging = false;
+	bool isOpen = false;
 	public int TargetVectorPadding = 30; // do not draw target-vector if absolute distance between drone and target minus padding on both side is below zero
-
 
 	// Use this for initialization
 	void Start () {
-		dragging = false;
+		menu = gameObject;
 	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (dragging == true || drone != null) {
-			lineStart = drone.transform.position;
-			if (target != null)
-				lineEnd = target.transform.position;
-			else
-				lineEnd = getMousePos ();
-			DrawTargetVector ();	
+		if (origin && dragging) {
+			DrawTargetVector ();
+		}
+		if (origin && target && !isOpen) {
+			openMenu (origin, target);
+			DrawTargetVector ();
 		}
 
-	}
-
-	void OnMouseOver () {
-		if (Input.GetMouseButtonDown (0)) {
-			drone = gameObject;
-			lineStart = drone.transform.position;
-			dragging = true;
-		}
-	}
-
-	void OnMouseDrag () {
-		if (dragging == true) {
-			lineEnd = getMousePos ();
+		if (origin && target && isOpen) {
+			DrawTargetVector ();
 		}
 	}
 
 	void OnMouseUp () {
-		if (dragging == true) {
+		if (origin && dragging) {
 			dragging = false;
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit, 100)) {
 				target = hit.transform.gameObject;
-				openMenu ();
+				GameObject menu = GameObject.FindGameObjectWithTag ("CommandMenu");
+				menu.GetComponent<CommandMenu> ().openMenu (origin, target);
 			}
 
 		}
 	}
 
-	void cmdOrbit() {
-		//drone.orbit();
+	public void cmdOrbit() {
+		Debug.Log ("orbiting");
+		Debug.Log (origin);
+		Debug.Log (target);
+		origin.SendMessage ("orbit", target);
 	}
 
-	void cmdFire () {
-		//drone.fire (target);
+	public void cmdFire () {
+		Debug.Log ("FIRE");
+		Debug.Log (origin);
+		Debug.Log(target);
+		//origin.fire (target);
 	}
 		
 	void DrawTargetVector () {
-		if (line == null) {
-			line = new GameObject ();
-			lr = line.AddComponent<LineRenderer> ();
+		LineRenderer targetLine = origin.GetComponentInChildren<LineRenderer> ();
+		targetLine.SetWidth (0.5f, 0);  
+		targetLine.SetPosition (0, origin.transform.position);
+		if ( target ) {
+			targetLine.SetPosition (1, target.transform.position);
+		} else {
+			targetLine.SetPosition (1, getMousePos());
 		}
-
-		lr.SetWidth (.2f, .2f);
-		Debug.Log ("orig:" + lineStart);
-		Debug.Log ("dest:" + lineEnd);
-		lr.SetPosition(0, lineStart);
-		lr.SetPosition(1, lineEnd); 
 	}
 
-	void openMenu () {
-		Debug.Log ("open menu around " + target.name);
+	public void openMenu (GameObject origin, GameObject target) {
+		this.origin = origin;
+		this.target = target;
 		isOpen = true;
+		menu.GetComponent<CanvasGroup> ().alpha = 1;
 	}
 
-	void closeMenu () {
+	public void closeMenu () {
 		isOpen = false;
+		dragging = false;
+		origin = null;
+		target = null;
+		menu.GetComponent<CanvasGroup> ().alpha = 0;
 	}
 
 	Vector3 getMousePos () {
