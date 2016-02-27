@@ -4,9 +4,6 @@ using SimpleJSON;
 
 public class Drone : MonoBehaviour
 {
-	public bool isOrbiting;
-	public GameObject orbitTarget;
-
 	public string name;
 
 	//stats
@@ -52,23 +49,12 @@ public class Drone : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		isOrbiting = false;	
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
 	
-	}
-
-	void startOrbiting () {
-		isOrbiting = true;
-	}
-
-	void fire () {
-	}
-
-	void orbit (GameObject target) {
 	}
 }
 

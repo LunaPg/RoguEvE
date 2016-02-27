@@ -3,13 +3,13 @@ using System.Collections;
 
 public class CommandOrigin : MonoBehaviour {
 	CommandMenu menu;
-	LineRenderer targetLine;
+	targetLineController targetLine;
 	bool hovered = false;
 
 	// Use this for initialization
 	void Start () {
 		menu = GameObject.FindGameObjectWithTag ("CommandMenu").GetComponent<CommandMenu> ();
-		targetLine = gameObject.GetComponentInChildren<LineRenderer> ();
+		targetLine = gameObject.GetComponentInChildren<targetLineController> ();
 	}
 
 	void OnMouseDown () {
@@ -17,6 +17,7 @@ public class CommandOrigin : MonoBehaviour {
 			return;
 		menu.origin = gameObject;
 		menu.dragging = true;
+		targetLine.origin = gameObject;
 	}
 
 	void OnMouseOver () {

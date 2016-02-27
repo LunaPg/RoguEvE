@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class CommandTarget : MonoBehaviour {
-	public GameObject target;
 	CommandMenu menu;
 	bool hovered;
 
@@ -16,19 +15,12 @@ public class CommandTarget : MonoBehaviour {
 		if (!hovered)
 			return;
 		
-		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-		RaycastHit hit;
-		if (Physics.Raycast (ray, out hit, 100)) {
-			target = hit.transform.gameObject;
-			menu.target = target;
-		}
+		menu.SetTarget (gameObject);
+		menu.openMenu ();
 	}
 
 	void OnMouseOver () {
 		hovered = true;
 	}
 
-	void OnCmdExecuted () {
-		target = null;
-	}
 }
