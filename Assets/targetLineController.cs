@@ -17,18 +17,15 @@ public class targetLineController : MonoBehaviour {
 	void Update () {
 		if (origin){
 			DrawLine ();
-			Debug.Log (origin.transform.position);
 		}	
 	}
 
-	void orbit (GameObject origin, GameObject target) {
-		this.origin = origin;
-		this.target = target;
+	void orbit (GameObject target) {
+		//this.target = target;
 	}
 
-	void attack (GameObject origin, GameObject target) {
-		this.origin = origin;
-		this.target = target;
+	void attack (GameObject target) {
+		//this.target = target;
 	}
 
 	void DrawLine () {

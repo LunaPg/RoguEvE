@@ -19,20 +19,7 @@ public class CommandMenu : MonoBehaviour {
 
 	public void SetTarget (GameObject target) {
 		this.target = target;
-		origin.GetComponentInChildren<targetLineController> ().target = target;
-	}
-	void OnMouseUp () {
-		if (origin && dragging) {
-			dragging = false;
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-			RaycastHit hit;
-			if (Physics.Raycast (ray, out hit, 100)) {
-				target = hit.transform.gameObject;
-				GameObject menu = GameObject.FindGameObjectWithTag ("CommandMenu");
-				menu.GetComponent<CommandMenu> ().openMenu (origin, target);
-			}
-
-		}
+		origin.GetComponent<targetLineController> ().target = target;
 	}
 
 	public void cmdOrbit() {

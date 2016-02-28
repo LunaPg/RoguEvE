@@ -9,7 +9,8 @@ public class CommandOrigin : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		menu = GameObject.FindGameObjectWithTag ("CommandMenu").GetComponent<CommandMenu> ();
-		targetLine = gameObject.GetComponentInChildren<targetLineController> ();
+		targetLine = GetComponentInParent<targetLineController> ();
+
 	}
 
 	void OnMouseDown () {

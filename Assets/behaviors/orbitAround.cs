@@ -44,4 +44,8 @@ public class orbitAround : MonoBehaviour {
 		isApproaching = true;
 		this.target = target;
 	}
+
+	public void stopOrbiting () {
+		isOrbiting = false;
+	}
 }
