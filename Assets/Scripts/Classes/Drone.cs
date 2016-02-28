@@ -5,6 +5,7 @@ using SimpleJSON;
 public class Drone : MonoBehaviour
 {
 	public string name;
+	public int eveId;
 
 	//stats
 	public int signatureRadius;
