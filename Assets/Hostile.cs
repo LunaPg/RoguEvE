@@ -5,7 +5,7 @@ public class Hostile : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<Health> ().maxHealth = 20;
+
 	}
 	
 	// Update is called once per frame
@@ -15,6 +15,6 @@ public class Hostile : MonoBehaviour {
 
 	void Explode () {
 		Debug.Log ("Hostile explodes...");
-		Destroy (gameObject);
+		//Destroy (gameObject);
 	}
 }

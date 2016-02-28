@@ -18,6 +18,8 @@ public class CommandMenu : MonoBehaviour {
 	}
 
 	public void SetTarget (GameObject target) {
+		if (!origin)
+			return;
 		this.target = target;
 		origin.GetComponent<targetLineController> ().target = target;
 	}
