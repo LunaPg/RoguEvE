@@ -17,22 +17,15 @@ public class CommandMenu : MonoBehaviour {
 	void FixedUpdate () {
 	}
 
-	public void SetTarget (GameObject target) {
-		this.target = target;
-		origin.GetComponentInChildren<targetLineController> ().target = target;
+	public void SetOrigin (GameObject origin) {
+		this.origin = origin;
 	}
-	void OnMouseUp () {
-		if (origin && dragging) {
-			dragging = false;
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-			RaycastHit hit;
-			if (Physics.Raycast (ray, out hit, 100)) {
-				target = hit.transform.gameObject;
-				GameObject menu = GameObject.FindGameObjectWithTag ("CommandMenu");
-				menu.GetComponent<CommandMenu> ().openMenu (origin, target);
-			}
 
-		}
+	public void SetTarget (GameObject target) {
+		if (!origin)
+			return;
+		this.target = target;
+		origin.GetComponent<targetLineController> ().target = target;
 	}
 
 	public void cmdOrbit() {
@@ -44,6 +37,8 @@ public class CommandMenu : MonoBehaviour {
 	}
 
 	public void openMenu () {
+		if (!origin || !target)
+			return;
 		isOpen = true;
 		menu.GetComponent<CanvasGroup> ().alpha = 1;
 	}

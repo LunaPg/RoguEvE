@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class attackTarget : MonoBehaviour {
+public class Hostile : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
@@ -13,6 +13,8 @@ public class attackTarget : MonoBehaviour {
 	
 	}
 
-	public void attack (GameObject target) {
+	void Explode () {
+		Debug.Log ("Hostile explodes...");
+		//Destroy (gameObject);
 	}
 }

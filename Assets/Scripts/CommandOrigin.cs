@@ -4,18 +4,23 @@ using System.Collections;
 public class CommandOrigin : MonoBehaviour {
 	CommandMenu menu;
 	targetLineController targetLine;
-	bool hovered = false;
+	public bool hovered = false;
 
 	// Use this for initialization
 	void Start () {
 		menu = GameObject.FindGameObjectWithTag ("CommandMenu").GetComponent<CommandMenu> ();
-		targetLine = gameObject.GetComponentInChildren<targetLineController> ();
+		targetLine = GetComponentInParent<targetLineController> ();
+
 	}
 
 	void OnMouseDown () {
+		startExecutingCommand ();
+	}
+
+	public void startExecutingCommand() {
 		if (!hovered)
 			return;
-		menu.origin = gameObject;
+		menu.SetOrigin (gameObject);
 		menu.dragging = true;
 		targetLine.origin = gameObject;
 	}
