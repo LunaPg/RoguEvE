@@ -17,7 +17,7 @@ public class DroneListContentController : MonoBehaviour {
 		RectTransform pos = DroneListItem.GetComponent<RectTransform> ();
 		//pos.transform.localPosition;
 		Image image = DroneListItem.GetComponentInChildren<Image> ();
-		image.overrideSprite = Resources.Load<Sprite> ("sprites/drones/" + DroneListItem.GetComponent<Drone>().eveId);
+		image.sprite = Resources.Load<Sprite> ("sprites/drones/" + DroneListItem.GetComponent<Drone>().eveId);
 
 		DroneListItem.transform.SetParent (gameObject.transform, false);
 	}
