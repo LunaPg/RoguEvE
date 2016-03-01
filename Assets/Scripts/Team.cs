@@ -18,8 +18,8 @@ public class Team : MonoBehaviour {
 		
 		foreach (Drone drone in team) {
 			GameObject droneClone = (GameObject)Instantiate (DronePrefab, transform.position, transform.rotation);
-			Drone dronefab = droneClone.GetComponent<Drone> () ;
-			dronefab = drone;
+			droneClone.BroadcastMessage ("set", drone.raw);
+
 		}
 	}
 }
