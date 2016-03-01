@@ -9,7 +9,7 @@ public class droneList : MonoBehaviour {
 	bool initialized = false;
 	public GameObject droneListContent;
 	public GameObject droneListItemPrefab;
-
+	public GameObject DroneSquad;
 	// Use this for initialization
 	void Start () {
 		crest = GameObject.FindGameObjectWithTag ("CREST").GetComponent<CrestService> ();
@@ -36,6 +36,9 @@ public class droneList : MonoBehaviour {
 
 			}
 		}
+	}
 
+	public void selected (Drone drone) {
+		DroneSquad.BroadcastMessage ("selectSquadSlot", drone);
 	}
 }

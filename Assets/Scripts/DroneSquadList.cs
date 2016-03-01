@@ -17,7 +17,7 @@ public class DroneSquadList : MonoBehaviour {
 		BroadcastMessage ("deselect");
 	}
 
-	public void select (GameObject drone) {
-		BroadcastMessage ("assign", drone);
+	public void selectSquadSlot (Drone drone) {
+		BroadcastMessage ("assignDrone", drone);
 	}
 }

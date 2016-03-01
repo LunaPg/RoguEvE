@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class DroneSquadSlot : MonoBehaviour {
-	Drone drone;
-	bool selected = false;
+	public Drone drone;
+	public bool selected = false;
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +15,7 @@ public class DroneSquadSlot : MonoBehaviour {
 	
 	}
 
-	public void assign (Drone drone) {
+	public void assignDrone (Drone drone) {
 		if (!selected)
 			return;
 		this.drone = drone;
