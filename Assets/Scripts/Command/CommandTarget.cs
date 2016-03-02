@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class CommandTarget : MonoBehaviour {
 	CommandMenu menu;
 	bool hovered;
+	public Commander commander;
+	public GameObject hostile;
 
 	// Use this for initialization
 	void Start () {
@@ -11,16 +13,8 @@ public class CommandTarget : MonoBehaviour {
 		menu = menuObject.GetComponent<CommandMenu> ();
 	}
 
-	void OnMouseUp () {
-		if (!hovered)
-			return;
-		
-		menu.SetTarget (gameObject);
-		menu.openMenu ();
-	}
-
-	void OnMouseOver () {
-		hovered = true;
+	public void setTarget() {
+		commander.setTarget (gameObject, hostile);
 	}
 
 }

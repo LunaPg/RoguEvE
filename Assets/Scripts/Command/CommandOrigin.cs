@@ -2,10 +2,13 @@
 using System.Collections;
 
 public class CommandOrigin : MonoBehaviour {
+	public Commander commander;
+
 	CommandMenu menu;
 	targetLineController targetLine;
 	public bool hovered = false;
 	public bool hasOrder = false;
+	public GameObject thumnail;
 
 	// Use this for initialization
 	void Start () {
@@ -15,29 +18,7 @@ public class CommandOrigin : MonoBehaviour {
 	}
 
 	void OnMouseDown () {
-		startExecutingCommand ();
-	}
-
-	public void startExecutingCommand() {
-		if (!hovered) {
-			return;
-		}
-		menu.SetOrigin (gameObject);
-		menu.dragging = true;
-		targetLine.origin = gameObject;
-	}
-
-	void OnMouseOver () {
-		hovered = true;
-	}
-
-	void OnMouseExit () {
-		hovered = false;
-	}
-
-	public void executeCommand (string commandName) {
-		Debug.Log (commandName);
-		hasOrder = true;
+		commander.setOrigin (thumnail, gameObject);
 	}
 
 }
