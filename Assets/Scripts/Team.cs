@@ -29,28 +29,10 @@ public class Team : MonoBehaviour {
 
 		if (loadDronesOnStart)
 			load ();
-			Debug.Log (team);
 	}
 
 	public void addDrone(GameObject drone){
 		team.Add(drone);
-	}
-
-	public void getDronesGameObjects(){
-		Debug.Log ("DronesGameObject"+team.Count);
-		int i = 1;
-		foreach (GameObject droneObject in team) {
-			Drone drone = droneObject.GetComponent<Drone> ();
-			string imageName = "Drone" + i.ToString ();
-			string spriteName = drone.eveId.ToString ();
-			GameObject droneClone = (GameObject)Instantiate (DronePrefab, transform.position, transform.rotation);
-			droneClone.transform.position = new Vector3(droneClone.transform.position.x + 10 *i, droneClone.transform.position.y, droneClone.transform.position.z);
-			//droneClone.BroadcastMessage ("set", drone.raw);
-			Sprite droneImg = (Sprite)Resources.Load("sprites/drones/"+spriteName, typeof(Sprite));
-			GameObject image = GameObject.Find (imageName);
-			image.GetComponent<Image> ().overrideSprite= droneImg;
-			i = i + 1;
-		}
 	}
 
 	public void deselectAll() {
@@ -81,21 +63,7 @@ public class Team : MonoBehaviour {
 				team [i].transform.position = drone.transform.position + Vector3.right * 10;
 			}
 		}
-
-//		if (!File.Exists (fileUrl))
-//			return;
-//		Debug.Log ("Loading team from file: " + fileUrl);
-//		BinaryFormatter bf = new BinaryFormatter ();
-//		FileStream file = File.Open (fileUrl, FileMode.Open);
-//
-//		teamRaw = (List<string>)bf.Deserialize (file);
-//		file.Close ();
-//
-//		//foreach (string json in teamRaw) {
-//		for ( int i = 0; i < teamRaw.Count; i++ ) {
-//			Drone drone = team [i].GetComponent<Drone> ();		
-//			drone.set (JSON.Parse(teamRaw[i]));
-//		}
+			
 		Debug.Log ("done, found " + team.Count + " drones");
 	}
 
