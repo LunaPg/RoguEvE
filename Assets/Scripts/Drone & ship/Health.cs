@@ -25,6 +25,8 @@ public class Health : MonoBehaviour {
 		armorSlider.value = armor;
 		hullSlider.maxValue = hull;
 		hullSlider.value = hull;
+
+		setSliders ();
 	}
 	
 	// Update is called once per frame
@@ -36,6 +38,19 @@ public class Health : MonoBehaviour {
 
 	void FixedUpdate () {
 		regenerateShield ();
+	}
+
+	public void setSliders() {
+		Drone drone = GetComponent<Drone> ();
+
+		shieldSlider.maxValue = drone.shieldCapacity;
+		shieldSlider.value = drone.shieldCapacity;
+
+		armorSlider.maxValue = drone.armorHp;
+		armorSlider.value = drone.armorHp;
+
+		hullSlider.maxValue = drone.hp;
+		hullSlider.value = drone.hp;
 	}
 
 	public void takeDamage (float amount, string type) {

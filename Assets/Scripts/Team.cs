@@ -61,9 +61,12 @@ public class Team : MonoBehaviour {
 				drone.set (JSON.Parse(jsonString));
 				setThumbnail (i, team[i]);
 				team [i].transform.position = drone.transform.position + Vector3.right * 10;
+				 
 			}
 		}
 			
+		BroadcastMessage ("setSliders");
+
 		Debug.Log ("done, found " + team.Count + " drones");
 	}
 

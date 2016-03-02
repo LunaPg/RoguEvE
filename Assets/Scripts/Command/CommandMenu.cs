@@ -35,16 +35,6 @@ public class CommandMenu : MonoBehaviour {
 		origin.GetComponent<targetLineController> ().target = target;
 	}
 
-	public void cmdOrbit() {
-		origin.SendMessage ("executeCommand", "orbit");
-		origin.SendMessage ("orbit", target);
-	}
-
-	public void cmdFire () {
-		origin.SendMessage ("executeCommand", "fire");
-		origin.SendMessage ("attack", target);
-	}
-
 	public void openMenu () {
 		if (!origin || !target)
 			return;
