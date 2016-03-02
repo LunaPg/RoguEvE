@@ -40,14 +40,14 @@ public class CommandMenu : MonoBehaviour {
 		if (!origin || !target)
 			return;
 		isOpen = true;
-		menu.GetComponent<CanvasGroup> ().alpha = 1;
+		menu.BroadcastMessage ("enableButtons");
 	}
 
 	public void openMenu (GameObject origin, GameObject target) {
 		this.origin = origin;
 		this.target = target;
 		isOpen = true;
-		menu.GetComponent<CanvasGroup> ().alpha = 1;
+		menu.BroadcastMessage ("enableButtons");
 	}
 
 	public void closeMenu () {
@@ -55,6 +55,6 @@ public class CommandMenu : MonoBehaviour {
 		dragging = false;
 		origin = null;
 		target = null;
-		menu.GetComponent<CanvasGroup> ().alpha = 0;
+		menu.BroadcastMessage ("disableButtons");
 	}
 }

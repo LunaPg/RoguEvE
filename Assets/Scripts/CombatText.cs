@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Hornet1 : Drone {
+public class CombatText : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		this.name = "Hornet";
 	
 	}
 	
