@@ -7,18 +7,19 @@ using System.Text.RegularExpressions;
 
 public class Texts : MonoBehaviour {
     string fileUrl;
-	public Dictionary<string, string> table;
+	public Dictionary<string, string> table = new Dictionary<string, string>();
+
 	// Use this for initialization
 	void Start () {
 		fileUrl = "Assets/rogueve.rogueAI.dialogs.txt";
-		table = new Dictionary<string, string> ();
 		loadTexts ();
 	}
 
 	public string get (string key) {
 		return table[key];
 	}
-	void loadTexts () {
+
+	void loadTexts () {  //ry hack because I can't read the file...
 		table.Add ("AI_FIGHT_START_1", 	"The hostile Capsuleer has fallen in \nrange of our Stasis Lock Cannon !");
 		table.Add ("AI_FIGHT_START_2", 	"Deploy your Drones and protect \nthe Hive !");
 		table.Add ("AI_HOSTILE_DETECTED","Our D-scan shows a hostile entity is approaching the Hive.");
@@ -33,8 +34,8 @@ public class Texts : MonoBehaviour {
 		table.Add ("AI_FIGHT_LOOSE",	"The Hive has fallen. You have failed to protect it.");
 		table.Add ("APP_TITLE",			"RoguEvE");
 		table.Add ("APP_CREDITS",		"rDyne & Eelai Nova");
-		table.Add ("HIVE_INSTRUCTIONS_1",		"You must assemble a team of Drones to defend the Hive against hostile entities.");
-		table.Add ("HIVE_INSTRUCTIONS_2",		"Click a Drone slot from the left, then click the drone you want to assign in the right list.");
+		table.Add ("HIVE_INSTRUCTIONS_1",		"You must assemble a team \nof Drones to defend the \nHive against hostile \nentities.");
+		table.Add ("HIVE_INSTRUCTIONS_2",		"Click a Drone slot from the \nleft, then click the drone \nyou want to assign in the \nright list.");
 		table.Add ("HIVE_MEDIUM_DRONES_AVAILABLE",		"We have gathered enough materials from the wrecks to start researching into better defense systems.");
 		table.Add ("HIVE_HEAVY_DRONES_AVAILABLE",		"We have analyzed enough battles to improve our defenses even further.");
 		table.Add ("HIVE_SALVAGE_DRONES_AVAILABLE",		"We have gathered an intact Salvager module from this wreck.");
