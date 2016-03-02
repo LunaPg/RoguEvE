@@ -2,14 +2,22 @@
 using System.Collections;
 
 public class CombatText : MonoBehaviour {
+	public GameObject Texts;
 
 	// Use this for initialization
 	void Start () {
-	
+		string text1 = Texts.GetComponent<Texts> ().get ("AI_FIGHT_START_1");
+		set(text1);
+		string text2 = Texts.GetComponent<Texts> ().get ("AI_FIGHT_START_2");
+		append ('\n' + text2);
+
+	}
+
+	public void set (string text) {
+		GetComponent<TextMesh> ().text = text;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	public void append (string text) {
+		GetComponent<TextMesh> ().text += text;
 	}
 }
