@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Hostile : MonoBehaviour {
-
+	public GameObject CombatTexts;
 	// Use this for initialization
 	void Start () {
 
@@ -16,5 +16,6 @@ public class Hostile : MonoBehaviour {
 	void Explode () {
 		Debug.Log ("Hostile explodes...");
 		//Destroy (gameObject);
+		CombatTexts.SendMessage("winCombat");
 	}
 }

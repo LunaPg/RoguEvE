@@ -27,9 +27,9 @@ public class Texts : MonoBehaviour {
 		table.Add ("AI_HOSTILE_IS_GALLENTE_FRIGATE",	"Further scanning reveals the hostile is piloting a Frigate from the Gallente Federation.");
 		table.Add ("AI_HOSTILE_IS_MINMATAR_FRIGATE",	"Further scanning reveals the hostile is piloting a Frigate from the Minmatar Republic.");
 		table.Add ("AI_HOSTILE_TIP_FRIGATE",	"Frigates tend to have low EM shield and EXP armor resists.");
-		table.Add ("AI_FIGHT_WIN_1",	"You have successfuly protected the Hive !");
-		table.Add ("AI_FIGHT_WIN_2",	"Good work. Now let's scavenge these wrecks.");
-		table.Add ("AI_FIGHT_WIN_3",	"You have eradicated the Capsuleer menace !");
+		table.Add ("AI_FIGHT_WIN_1",	"You have successfuly protected \nthe Hive !");
+		table.Add ("AI_FIGHT_WIN_2",	"Good work. Now let's scavenge \nthese wrecks.");
+		table.Add ("AI_FIGHT_WIN_3",	"You have eradicated the Capsuleer \nmenace !");
 		table.Add ("AI_FIGHT_LOOSE",	"The Hive has fallen. You have failed to protect it.");
 		table.Add ("APP_TITLE",			"RoguEvE");
 		table.Add ("APP_CREDITS",		"rDyne & Eelai Nova");

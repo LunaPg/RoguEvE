@@ -20,4 +20,10 @@ public class CombatText : MonoBehaviour {
 	public void append (string text) {
 		GetComponent<TextMesh> ().text += text;
 	}
+
+	public void winCombat () {
+		int index = Random.Range (1, 3);
+		string text = Texts.GetComponent<Texts> ().get ("AI_FIGHT_WIN_" + index);
+		set (text);
+	}
 }
