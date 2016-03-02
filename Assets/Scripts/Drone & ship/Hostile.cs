@@ -15,7 +15,8 @@ public class Hostile : MonoBehaviour {
 
 	void Explode () {
 		Debug.Log ("Hostile explodes...");
-		//Destroy (gameObject);
 		CombatTexts.SendMessage("winCombat");
+		transform.FindChild ("ShipSprite").gameObject.SetActive (false);
+		transform.FindChild ("CapsuleSprite").gameObject.SetActive (true);
 	}
 }
