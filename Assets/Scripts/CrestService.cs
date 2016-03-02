@@ -13,6 +13,10 @@ public class CrestService : MonoBehaviour {
 	public Boolean gotLightScoutDronesT1 = false;
 	public ArrayList lightScoutDroneT1Ids = new ArrayList{"2203","2464","2454","2486"};
 
+	public Boolean gotRifter = false;
+	public JSONNode rifter;
+	public string rifterId = "587";
+
 
 	//public Drone drone;
 	
@@ -64,16 +68,38 @@ public class CrestService : MonoBehaviour {
 		}
 		onComplete ();
     }
+
+	IEnumerator getRifterSpecs(string rifterId, Action onComplete) {
+		string rifterUrl = url + "/types/" + rifterId + "/";
+		Debug.Log (rifterUrl);
+		www = new WWW (rifterUrl);
+		yield return www;
+
+		JSONNode response = JSON.Parse (www.text);
+		Hostile rifter = new Hostile ();
+		rifter.eveId = int.Parse (rifterId);
+		rifter.set (response);
+		this.rifter = response;
+		Debug.Log (rifter.name + " hp: " + rifter.hp);
+		onComplete ();
+	}
 		
 	public void GetLightScoutDronesT1 () {
-		StartCoroutine (getDroneSpecs (lightScoutDroneT1Ids, lightScoutDronesT1, () =>
-			{
-				Debug.Log("Finished !"+ lightScoutDronesT1.Count);
-				gotLightScoutDronesT1 = true;
-			})
+		StartCoroutine (getDroneSpecs (lightScoutDroneT1Ids, lightScoutDronesT1, () => {
+			Debug.Log("Finished !"+ lightScoutDronesT1.Count);
+			gotLightScoutDronesT1 = true;
+		})
 		);		
 	}
 
+	public void GetRifter () {
+		StartCoroutine (getRifterSpecs (rifterId, () => {
+			Debug.Log ("got Rifter");
+			Debug.Log (rifter);
+			gotRifter = true;
+		})
+		);
+	}
 }
 
 

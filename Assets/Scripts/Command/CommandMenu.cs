@@ -18,6 +18,13 @@ public class CommandMenu : MonoBehaviour {
 	}
 
 	public void SetOrigin (GameObject origin) {
+		if (this.origin ) {
+			if (!origin.GetComponent<CommandOrigin> ().hasOrder) {
+				targetLineController line = origin.GetComponent<targetLineController> ();
+				line.origin = null;
+				line.hide ();
+			}
+		}
 		this.origin = origin;
 	}
 
@@ -29,10 +36,12 @@ public class CommandMenu : MonoBehaviour {
 	}
 
 	public void cmdOrbit() {
+		origin.SendMessage ("executeCommand", "orbit");
 		origin.SendMessage ("orbit", target);
 	}
 
 	public void cmdFire () {
+		origin.SendMessage ("executeCommand", "fire");
 		origin.SendMessage ("attack", target);
 	}
 
@@ -53,8 +62,15 @@ public class CommandMenu : MonoBehaviour {
 	public void closeMenu () {
 		isOpen = false;
 		dragging = false;
+		if (origin && target) {
+			if (!origin.GetComponent<CommandOrigin> ().hasOrder) {
+				origin.GetComponent<targetLineController> ().hide ();
+			}
+		}
+	
 		origin = null;
 		target = null;
 		menu.BroadcastMessage ("disableButtons");
 	}
+
 }

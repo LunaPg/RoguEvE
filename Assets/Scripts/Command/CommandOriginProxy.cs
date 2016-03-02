@@ -3,7 +3,6 @@ using System.Collections;
 
 public class CommandOriginProxy : MonoBehaviour {
 	public GameObject drone;
-	CommandOrigin cmd;
 	public bool hovered = false;
 
 	// Use this for initialization
@@ -11,7 +10,6 @@ public class CommandOriginProxy : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
 	void OnMouseOver () {
 		hovered = true;
 	}
@@ -22,12 +20,12 @@ public class CommandOriginProxy : MonoBehaviour {
 
 	void OnMouseDown() {
 		if (hovered) {
-			cmd.hovered = true;
-			cmd.startExecutingCommand ();
+			drone.GetComponent<CommandOrigin>().hovered = true;
+			drone.GetComponent<CommandOrigin>().startExecutingCommand ();
 		}
 	}
 
-	void assignDrone (Drone drone) {
-		cmd = drone.GetComponent<CommandOrigin> ();
+	void assignDrone (GameObject drone) {
+		drone = drone;
 	}
 }

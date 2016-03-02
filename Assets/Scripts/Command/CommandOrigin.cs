@@ -5,6 +5,7 @@ public class CommandOrigin : MonoBehaviour {
 	CommandMenu menu;
 	targetLineController targetLine;
 	public bool hovered = false;
+	public bool hasOrder = false;
 
 	// Use this for initialization
 	void Start () {
@@ -18,8 +19,9 @@ public class CommandOrigin : MonoBehaviour {
 	}
 
 	public void startExecutingCommand() {
-		if (!hovered)
+		if (!hovered) {
 			return;
+		}
 		menu.SetOrigin (gameObject);
 		menu.dragging = true;
 		targetLine.origin = gameObject;
@@ -31,6 +33,11 @@ public class CommandOrigin : MonoBehaviour {
 
 	void OnMouseExit () {
 		hovered = false;
+	}
+
+	public void executeCommand (string commandName) {
+		Debug.Log (commandName);
+		hasOrder = true;
 	}
 
 }

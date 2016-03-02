@@ -51,17 +51,6 @@ public class Drone : MonoBehaviour
 	public int kineticDamage;
 	public int thermalDamage;
 
-	// Use this for initialization
-	void Start ()
-	{
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
-	}
-
 	public void set (JSONNode data) {
 		raw = data;
 		this.name = data["name"].ToString();

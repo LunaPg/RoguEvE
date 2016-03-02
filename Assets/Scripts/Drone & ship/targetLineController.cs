@@ -15,7 +15,7 @@ public class targetLineController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (origin){
+		if (origin) {
 			DrawLine ();
 		}	
 	}
@@ -36,6 +36,10 @@ public class targetLineController : MonoBehaviour {
 		} else {
 			targetLine.SetPosition (1, getMousePos());
 		}
+	}
+
+	public void hide () {
+		targetLine.SetWidth (0, 0);
 	}
 
 	Vector3 getMousePos () {
