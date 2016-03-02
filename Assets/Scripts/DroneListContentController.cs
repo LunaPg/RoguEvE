@@ -4,15 +4,6 @@ using System.Collections;
 
 public class DroneListContentController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 	void addListItem (GameObject DroneListItem ) {
 		RectTransform pos = DroneListItem.GetComponent<RectTransform> ();
 		//pos.transform.localPosition;

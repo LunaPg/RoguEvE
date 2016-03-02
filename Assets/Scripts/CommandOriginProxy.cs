@@ -8,7 +8,7 @@ public class CommandOriginProxy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		cmd = drone.GetComponent<CommandOrigin> ();
+		
 	}
 	
 	// Update is called once per frame
@@ -25,5 +25,9 @@ public class CommandOriginProxy : MonoBehaviour {
 			cmd.hovered = true;
 			cmd.startExecutingCommand ();
 		}
+	}
+
+	void assignDrone (Drone drone) {
+		cmd = drone.GetComponent<CommandOrigin> ();
 	}
 }

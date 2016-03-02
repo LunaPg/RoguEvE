@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using SimpleJSON;
-using UnityEngine.Serialization;
 using System;
 
-[Serializable]
 public class Drone : MonoBehaviour
 {
 	public string name;
 	public int eveId;
+	[SerializeField]
 	public JSONNode raw;
 
 	//stats
