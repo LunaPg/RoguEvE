@@ -51,6 +51,10 @@ public class Drone : MonoBehaviour
 	public int kineticDamage;
 	public int thermalDamage;
 
+	public void set (GameObject droneObject) {
+		set (droneObject.GetComponent<Drone> ().raw);
+	}
+
 	public void set (JSONNode data) {
 		raw = data;
 		this.name = data["name"].ToString();

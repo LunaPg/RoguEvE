@@ -9,7 +9,13 @@ using SimpleJSON;
 public class Team : MonoBehaviour {
 	
 	//public List<Drone> team = new List<Drone>();
-	public List<GameObject> team = new List<GameObject>(new GameObject[5]);
+	List<GameObject> team = new List<GameObject>();
+	public GameObject drone1;
+	public GameObject drone2;
+	public GameObject drone3;
+	public GameObject drone4;
+	public GameObject drone5;
+
 	List<GameObject> thumbnails = new List<GameObject>();
 	public GameObject thumbnail1;
 	public GameObject thumbnail2;
@@ -27,9 +33,11 @@ public class Team : MonoBehaviour {
 	void Start () {
 		fileUrl = Application.persistentDataPath + "/team.dat";
 
-		foreach (GameObject drone in GameObject.FindGameObjectsWithTag("drone") ) {
-			addDrone (drone);
-		}
+		team.Add (drone1);
+		team.Add (drone2);
+		team.Add (drone3);
+		team.Add (drone4);
+		team.Add (drone5);
 
 		thumbnails.Add (thumbnail1);
 		thumbnails.Add (thumbnail2);
@@ -42,15 +50,13 @@ public class Team : MonoBehaviour {
 			load ();
 	}
 
-	public void addDrone(GameObject drone){
-		team.Add(drone);
-	}
-
 	public void save () {
 		var i = 0;
 		foreach (Drone drone in GetComponentsInChildren<Drone>()) {
 			Debug.Log ("saving drone" + i + " as " + drone.name);
-			PlayerPrefs.SetString ("team-" + i++, drone.raw);
+			PlayerPrefs.SetString ("team-" + i, drone.raw.ToString());
+			i++;
+			Debug.Log (drone.raw);
 		}
 
 //		for (int i = 0; i < 5; i++) {
@@ -61,16 +67,16 @@ public class Team : MonoBehaviour {
 
 	public void load () {
 		for (int i = 0; i < 5; i++) {
-			string jsonString = PlayerPrefs.GetString ("team-" + i, "");
+			string jsonString = PlayerPrefs.GetString ("team-" + i, "not-found");
 
 			if (jsonString != "") {
-				Drone drone = team[i].GetComponent<Drone> ();
-				drone.eveId = drone.id;
-				drone.set (JSON.Parse(jsonString));
-				setThumbnail (i, team[i]);
-				team [i].transform.position = drone.transform.position + Vector3.right * 10;
-				 
-			}
+				Drone drone = team [i].GetComponent<Drone> ();
+				drone.set (JSON.Parse (jsonString));
+				Debug.Log ("Found drone " + drone.name + " at index " + i);
+				setThumbnail (i, team [i]);
+				team [i].transform.position += Vector3.right * 10;
+			} else
+				Debug.Log ("MEH" + jsonString + ":(");
 		}
 			
 		BroadcastMessage ("setSliders");
@@ -94,6 +100,7 @@ public class Team : MonoBehaviour {
 
 	public void selectDrone (GameObject drone) {
 		setThumbnail (selectedIndex, drone);
+		thumbnails [selectedIndex].GetComponent<Drone> ().set (drone.GetComponent<Drone>().raw);
 	}
 
 }
