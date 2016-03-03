@@ -26,7 +26,6 @@ public class Health : MonoBehaviour {
 		hullSlider.maxValue = hull;
 		hullSlider.value = hull;
 
-		//setSliders ();
 	}
 	
 	// Update is called once per frame
