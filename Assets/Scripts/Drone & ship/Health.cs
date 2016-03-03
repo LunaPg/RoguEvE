@@ -41,20 +41,21 @@ public class Health : MonoBehaviour {
 	}
 
 	public void setSliders() {
+		Debug.Log ("drone instanciation slider");
 		Drone drone = GetComponent<Drone> ();
 
+		shieldSlider.maxValue = drone.shieldCapacity;
+		shieldSlider.value = drone.shieldCapacity;
+		shield = drone.shieldCapacity;
 
-	//	if (drone != null) {
+		armorSlider.maxValue = drone.armorHp;
+		armorSlider.value = drone.armorHp;
+		armor = drone.armorHp;
 
-			shieldSlider.maxValue = drone.shieldCapacity;
-			shieldSlider.value = drone.shieldCapacity;
+		hullSlider.maxValue = drone.hp;
+		hullSlider.value = drone.hp;
+		hull = drone.hp;
 
-			armorSlider.maxValue = drone.armorHp;
-			armorSlider.value = drone.armorHp;
-
-			hullSlider.maxValue = drone.hp;
-			hullSlider.value = drone.hp;
-	//	}
 	}
 
 	public void setSlidersHostile() {
