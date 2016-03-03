@@ -1,25 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DroneSquadSlot : MonoBehaviour {
-	public Drone drone;
-	public bool selected = false;
 
-	public void assignDrone (Drone drone) {
-		if (!selected)
-			return;
-		this.drone = drone;
+	public void assignDrone (GameObject droneListItem) {
+		GetComponent<Drone> ().set (droneListItem.GetComponent<Drone>().raw);
 	}
 
-	public void select() {
-		selected = true;
-	}
 
-	public void deselect () {
-		selected = false;
-	}
-
-	public bool hasDrone () {
-		return drone != null;
-	}
 }

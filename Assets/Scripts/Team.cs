@@ -9,12 +9,20 @@ using SimpleJSON;
 public class Team : MonoBehaviour {
 	
 	//public List<Drone> team = new List<Drone>();
-	public List<GameObject> team = new List<GameObject>();
-	public List<GameObject> thumbnails = new List<GameObject>();
+	public List<GameObject> team = new List<GameObject>(new GameObject[5]);
+	List<GameObject> thumbnails = new List<GameObject>();
+	public GameObject thumbnail1;
+	public GameObject thumbnail2;
+	public GameObject thumbnail3;
+	public GameObject thumbnail4;
+	public GameObject thumbnail5;
+
 	public List<string> teamRaw = new List<string>();
 	public bool loadDronesOnStart = false;
 	public GameObject DronePrefab;
 	string fileUrl;
+
+	int selectedIndex;
 
 	void Start () {
 		fileUrl = Application.persistentDataPath + "/team.dat";
@@ -23,9 +31,12 @@ public class Team : MonoBehaviour {
 			addDrone (drone);
 		}
 
-		foreach (GameObject thumbnail in GameObject.FindGameObjectsWithTag("thumbnail-drone")) {
-			thumbnails.Add (thumbnail);
-		}
+		thumbnails.Add (thumbnail1);
+		thumbnails.Add (thumbnail2);
+		thumbnails.Add (thumbnail3);
+		thumbnails.Add (thumbnail4);
+		thumbnails.Add (thumbnail5);
+
 
 		if (loadDronesOnStart)
 			load ();
@@ -35,20 +46,17 @@ public class Team : MonoBehaviour {
 		team.Add(drone);
 	}
 
-	public void deselectAll() {
-		BroadcastMessage ("deselect");
-	}
-
-	public void selectSquadSlot (Drone drone) {
-		BroadcastMessage ("assignDrone", drone);
-		//addDrone (drone);
-	}
-
 	public void save () {
-		for (int i = 0; i < team.Count; i++) {
-			Drone drone = team [i].GetComponent<Drone> ();
-			PlayerPrefs.SetString ("team-" + i, drone.raw);
+		var i = 0;
+		foreach (Drone drone in GetComponentsInChildren<Drone>()) {
+			Debug.Log ("saving drone" + i + " as " + drone.name);
+			PlayerPrefs.SetString ("team-" + i++, drone.raw);
 		}
+
+//		for (int i = 0; i < 5; i++) {
+//			Drone drone = team [i].GetComponent<Drone> ();
+//			PlayerPrefs.SetString ("team-" + i, drone.raw);
+//		}
 	}
 
 	public void load () {
@@ -72,12 +80,20 @@ public class Team : MonoBehaviour {
 
 	public void setThumbnail (int i, GameObject droneObject) {
 		Drone drone = droneObject.GetComponent<Drone> ();
-		string imageName = "Drone" + i.ToString ();
-		string spriteName = drone.id.ToString ();
+		string spriteName = drone.eveId.ToString ();
 
 		Sprite droneImg = (Sprite)Resources.Load("sprites/drones/"+spriteName, typeof(Sprite));
 		GameObject thumbnail = thumbnails [i];
-		thumbnail.GetComponent<Image> ().overrideSprite = droneImg;
+		thumbnail.GetComponent<Image> ().sprite = droneImg;
+	}
+
+
+	public void selectSlot (int index) {
+		selectedIndex = index;
+	}
+
+	public void selectDrone (GameObject drone) {
+		setThumbnail (selectedIndex, drone);
 	}
 
 }
