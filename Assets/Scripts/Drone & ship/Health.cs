@@ -26,7 +26,7 @@ public class Health : MonoBehaviour {
 		hullSlider.maxValue = hull;
 		hullSlider.value = hull;
 
-		setSliders ();
+		//setSliders ();
 	}
 	
 	// Update is called once per frame
@@ -43,14 +43,36 @@ public class Health : MonoBehaviour {
 	public void setSliders() {
 		Drone drone = GetComponent<Drone> ();
 
-		shieldSlider.maxValue = drone.shieldCapacity;
-		shieldSlider.value = drone.shieldCapacity;
 
-		armorSlider.maxValue = drone.armorHp;
-		armorSlider.value = drone.armorHp;
+	//	if (drone != null) {
 
-		hullSlider.maxValue = drone.hp;
-		hullSlider.value = drone.hp;
+			shieldSlider.maxValue = drone.shieldCapacity;
+			shieldSlider.value = drone.shieldCapacity;
+
+			armorSlider.maxValue = drone.armorHp;
+			armorSlider.value = drone.armorHp;
+
+			hullSlider.maxValue = drone.hp;
+			hullSlider.value = drone.hp;
+	//	}
+	}
+
+	public void setSlidersHostile() {
+		Hostile hostile = GetComponent<Hostile> ();
+
+		Debug.Log ("Hostile HP" + hostile.hp);
+
+		shieldSlider.maxValue = hostile.shieldCapacity;
+		shieldSlider.value = hostile.shieldCapacity;
+		shield = hostile.shieldCapacity;
+
+		armorSlider.maxValue = hostile.armorHp;
+		armorSlider.value = hostile.armorHp;
+		armor = hostile.armorHp;
+
+		hullSlider.maxValue = hostile.hp;
+		hullSlider.value = hostile.hp;
+		hull = hostile.hp;
 	}
 
 	public void takeDamage (float amount, string type) {
