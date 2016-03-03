@@ -72,7 +72,7 @@ public class droneList : MonoBehaviour {
 		prefab.transform.Find ("thermalDmg").GetComponent<Text>().text = drone.thermalDamage.ToString() ;
 	}
 
-	public void selected (Drone drone) {
-		DroneSquad.BroadcastMessage ("selectSquadSlot", drone);
+	public void selected (GameObject drone) {
+		DroneSquad.SendMessage("selectDrone", drone);
 	}
 }
