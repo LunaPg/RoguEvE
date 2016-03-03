@@ -72,8 +72,7 @@ public class Team : MonoBehaviour {
 
 	public void setThumbnail (int i, GameObject droneObject) {
 		Drone drone = droneObject.GetComponent<Drone> ();
-		string imageName = "Drone" + i.ToString ();
-		string spriteName = drone.id.ToString ();
+		string spriteName = drone.eveId.ToString ();
 
 		Sprite droneImg = (Sprite)Resources.Load("sprites/drones/"+spriteName, typeof(Sprite));
 		GameObject thumbnail = thumbnails [i];

@@ -54,7 +54,7 @@ public class Drone : MonoBehaviour
 	public void set (JSONNode data) {
 		raw = data;
 		this.name = data["name"].ToString();
-		this.id = (int)data ["id"].AsFloat;
+		this.eveId = (int)data ["id"].AsFloat;
 		for (int i = 0 ; i < data["dogma"]["attributes"].Count ; i++){			
 			switch ( data["dogma"]["attributes"][i]["attribute"]["name"]) {
 			case "hp": 
