@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class CombatText : MonoBehaviour {
-	public GameObject Texts;
+	public GameObject scoopButton;
 	public string AI_FIGHT_START_1;
 	public string AI_FIGHT_START_2;
 	public string AI_FIGHT_WIN_1;
@@ -33,5 +33,7 @@ public class CombatText : MonoBehaviour {
 			set (AI_FIGHT_WIN_2);
 		if (index == 3)
 			set (AI_FIGHT_WIN_3);
+
+		scoopButton.SetActive (true);
 	}
 }
