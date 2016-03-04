@@ -7,7 +7,11 @@ Choose your drones in a team of 5 and destroy the oponent rifter.
 
 We are only using the CREST API.
 
-Download the build for window 64 bit here >>>
+We've made a GameJolt Page for this game, where you can download builds
+
+Download the build  here >>> http://gamejolt.com/games/rogueve/130368 <<<
+
+
 
 # Story 
 
