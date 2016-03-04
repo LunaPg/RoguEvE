@@ -8,6 +8,6 @@ public class DroneListContentController : MonoBehaviour {
 		Image image = DroneListItem.GetComponentInChildren<Image> ();
 		image.sprite = Resources.Load<Sprite> ("sprites/drones/" + DroneListItem.GetComponent<Drone>().eveId);
 
-		DroneListItem.transform.SetParent (gameObject.transform, false);
+		DroneListItem.transform.SetParent (transform, false);
 	}
 }
