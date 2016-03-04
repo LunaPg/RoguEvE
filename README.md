@@ -1,30 +1,52 @@
 # RoguEvE
+
 You play the rogue drone AI and must defend the Hive against the capsuleer menace !
 
-Mother base needs her children to protect her !
+Assemble your team of five drones to defeat the ennemy ship(s).
 
-Choose your drones in a team of 5 and destroy the oponent rifter.
-
-We are only using the CREST API.
-
-We've made a GameJolt Page for this game, where you can download builds
-
-Download the build  here >>> http://gamejolt.com/games/rogueve/130368 <<<
+Be sure to match the best variation of damage types and resistances to maximize your efficiency.
 
 
+# Disclaimer
 
-# Story 
+No Eve Online data is stored in the game, as everything is fetched asynchronously using the public CREST API ( https://public-crest.eveonline.com/ ).
+The old XML (authentified) API is not used at all.
 
-We are partner in space, development and life ! We are web full stack developpment and this is our first game ...More a prototype than a game.
+We've made a GameJolt Page for this game! Download the build here >>> http://gamejolt.com/games/rogueve/130368 <<<
 
-We know that we will run out of time (2 weeks ...) and cut a loooot of feature, but it taugh us a lot !
 
-We hope that you will enjoy our prototype !
+
+# Foreword
+
+We are partners in space, development and life!
+We are web full stack developpment and this is our first game.
+
+We have started the API Challenge late, and we'll be facing 2 main issues:
+
+- short dead line... 2 weeks
+- unmastered tech... Unity
+
+http://community.eveonline.com/news/dev-blogs/the-eve-online-api-challenge-1/
+
+
+# Afterword
+
+We obviously had to cut through so many features... But we've learned a lot.
+The end result does not aim to be a stand-alone clone of Eve online.
+You should rather consider it as a prototype of a mobile application where any one could "assist" any player in space who has drones launched using his/her personal tablet, phone or web browser.
+
+This asymetric gameplay introduces a concept rarely seen before in MMO's: "collaborative gameplay". In other words, how to give control to a ship to more than one player.
+
+Although using the proper formulas to simulate a battle was possible, we've heavily simplified the mechanics to meet the deadline (the Rifter doesn't even have a weapon :/).
+
+We hope you'll enjoy this prototype !
 
 Follow us on http://jams.gamejolt.io/rogueve
 
 
-Copyright © 2016 Diane Agnan and Remy Chaumard
+# Copyright 
+
+Copyright © 2016 Diane Agnan <3 Remy Chaumard
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
