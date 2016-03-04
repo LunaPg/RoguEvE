@@ -52,24 +52,24 @@ public class droneList : MonoBehaviour {
 	void setDroneText(Drone drone, GameObject prefab){
 		prefab.transform.Find ("hp").GetComponent<Text>().text = "hp :"+drone.hp.ToString() ;
 		prefab.transform.Find ("Name").GetComponent<Text>().text = drone.name ; 
-		prefab.transform.Find ("kineticDmgResonnance").GetComponent<Text>().text = drone.kineticDamageResonance.ToString() ;
-		prefab.transform.Find ("thermalDmgResonnance").GetComponent<Text>().text = drone.thermalDamageResonance.ToString() ;
-		prefab.transform.Find ("explosiveDmgResonnance").GetComponent<Text>().text = drone.explosiveDamageResonance.ToString() ;
-		prefab.transform.Find ("emDmgResonnance").GetComponent<Text>().text = drone.emDamageResonance.ToString() ;
-		prefab.transform.Find ("Shield").GetComponent<Text>().text = drone.shieldCapacity.ToString() ;
-		prefab.transform.Find ("emShield").GetComponent<Text>().text = drone.shieldEmDamageResonance.ToString() ;
-		prefab.transform.Find ("explosiveShield").GetComponent<Text>().text = drone.shieldExplosiveDamageResonance.ToString() ;
-		prefab.transform.Find ("kineticShield").GetComponent<Text>().text = drone.shieldKineticDamageResonance.ToString() ;
-		prefab.transform.Find ("thermalShield").GetComponent<Text>().text = drone.shieldThermalDamageResonance.ToString() ;
-		prefab.transform.Find ("Armor").GetComponent<Text>().text = drone.armorHp.ToString() ;
-		prefab.transform.Find ("emArmor").GetComponent<Text>().text = drone.armorEmDamageResonance.ToString() ;
-		prefab.transform.Find ("explosiveArmor").GetComponent<Text>().text = drone.armorExplosiveDamageResonance.ToString() ;
-		prefab.transform.Find ("kineticArmor").GetComponent<Text>().text = drone.armorKineticDamageResonance.ToString() ;
-		prefab.transform.Find ("thermalArmor").GetComponent<Text>().text = drone.armorThermalDamageResonance.ToString() ;
-		prefab.transform.Find ("emDmg").GetComponent<Text>().text = drone.emDamage.ToString() ;
-		prefab.transform.Find ("explosiveDmg").GetComponent<Text>().text = drone.explosiveDamage.ToString() ;
-		prefab.transform.Find ("kineticDmg").GetComponent<Text>().text = drone.kineticDamage.ToString() ;
-		prefab.transform.Find ("thermalDmg").GetComponent<Text>().text = drone.thermalDamage.ToString() ;
+		prefab.transform.Find ("kineticDmgResonnance").GetComponent<Text>().text = "kinetic: "+drone.kineticDamageResonance.ToString() ;
+		prefab.transform.Find ("thermalDmgResonnance").GetComponent<Text>().text = "thermal: "+drone.thermalDamageResonance.ToString() ;
+		prefab.transform.Find ("explosiveDmgResonnance").GetComponent<Text>().text = "explo: "+drone.explosiveDamageResonance.ToString() ;
+		prefab.transform.Find ("emDmgResonnance").GetComponent<Text>().text = "em: " + drone.emDamageResonance.ToString() ;
+		prefab.transform.Find ("Shield").GetComponent<Text>().text = "shield: "+drone.shieldCapacity.ToString() ;
+		prefab.transform.Find ("emShield").GetComponent<Text>().text = "em: "+drone.shieldEmDamageResonance.ToString() ;
+		prefab.transform.Find ("explosiveShield").GetComponent<Text>().text = "explo: " +drone.shieldExplosiveDamageResonance.ToString() ;
+		prefab.transform.Find ("kineticShield").GetComponent<Text>().text = "kinetic: "+drone.shieldKineticDamageResonance.ToString() ;
+		prefab.transform.Find ("thermalShield").GetComponent<Text>().text = "thermal: "+drone.shieldThermalDamageResonance.ToString() ;
+		prefab.transform.Find ("Armor").GetComponent<Text>().text ="armor: "+ drone.armorHp.ToString() ;
+		prefab.transform.Find ("emArmor").GetComponent<Text>().text ="em: "+ drone.armorEmDamageResonance.ToString() ;
+		prefab.transform.Find ("explosiveArmor").GetComponent<Text>().text = "explo: "+drone.armorExplosiveDamageResonance.ToString() ;
+		prefab.transform.Find ("kineticArmor").GetComponent<Text>().text = "kinetic: "+drone.armorKineticDamageResonance.ToString() ;
+		prefab.transform.Find ("thermalArmor").GetComponent<Text>().text = "thermal: "+drone.armorThermalDamageResonance.ToString() ;
+		prefab.transform.Find ("emDmg").GetComponent<Text>().text = "em: "+drone.emDamage.ToString() ;
+		prefab.transform.Find ("explosiveDmg").GetComponent<Text>().text = "explo: "+drone.explosiveDamage.ToString() ;
+		prefab.transform.Find ("kineticDmg").GetComponent<Text>().text = "kinetic: "+drone.kineticDamage.ToString() ;
+		prefab.transform.Find ("thermalDmg").GetComponent<Text>().text = "thermal: "+drone.thermalDamage.ToString() ;
 	}
 
 	public void selected (GameObject drone) {
