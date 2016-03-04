@@ -12,7 +12,7 @@ public class Health : MonoBehaviour {
 	public Slider armorSlider;
 	public Slider hullSlider;
 
-	bool isDead;
+	public bool isDead;
 	bool isDamaged;
 	// Use this for initialization
 	void Start () {
