@@ -10,8 +10,6 @@ public class Hostile : MonoBehaviour {
 	public string name;
 	public string raw;
 
-	public float tmpDamage;
-	public float tmpDamageType;
 	//structure
 	public int hp;
 	//resistances
