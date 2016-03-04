@@ -5,6 +5,8 @@ using SimpleJSON;
 using UnityEngine.UI;
 
 public class CrestService : MonoBehaviour {
+	public GameObject DronePrefab;
+	public GameObject RifterPrefab;
 
     public string url = "https://public-crest.eveonline.com";
     public WWW www;
@@ -60,8 +62,8 @@ public class CrestService : MonoBehaviour {
 	        yield return www;
 
 			JSONNode response = JSON.Parse(www.text);
-			Drone drone = new Drone ();
-			drone.eveId = int.Parse(droneId);
+			GameObject prefab = Instantiate (DronePrefab);
+			Drone drone = prefab.GetComponent<Drone> ();
 			drone.set (response);
 			saveTo.Add (drone);
 			Debug.Log ("Drone HP is " + drone.hp + "Name"+ drone.name);
@@ -76,11 +78,14 @@ public class CrestService : MonoBehaviour {
 		yield return www;
 
 		JSONNode response = JSON.Parse (www.text);
-		Hostile rifter = new Hostile ();
+		GameObject prefab = Instantiate (RifterPrefab);
+		Hostile rifter = prefab.GetComponent<Hostile> ();
+		Destroy (prefab);
 		rifter.eveId = int.Parse (rifterId);
 		//rifter.set (response);
 		this.rifter = response;
 		Debug.Log (rifter.name + " hp: " + rifter.hp);
+
 		onComplete ();
 	}
 		

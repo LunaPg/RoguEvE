@@ -33,11 +33,15 @@ public class attackHostile : MonoBehaviour {
 	}
 
 	bool canAttack () {
+		if (gameObject.GetComponent<Health> ().isDead)
+			return false;
 		return (target != null) && (timer == 0.0f);
 	}
 
 	void dealDamage (GameObject target, float damage, string type) {
-		target.GetComponent<Health>().takeDamage (damage, type);
-		
+		Health ennemyLife = target.GetComponent<Health> ();
+
+		ennemyLife.takeDamage (damage, type);
+		target.SendMessage ("attackedBy", gameObject);
 	}
 }

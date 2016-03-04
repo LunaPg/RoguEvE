@@ -9,6 +9,7 @@ public class Hostile : MonoBehaviour {
 	public int id;
 	public string name;
 	public string raw;
+
 	//structure
 	public int hp;
 	//resistances

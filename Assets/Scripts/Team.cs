@@ -100,4 +100,5 @@ public class Team : MonoBehaviour {
 		thumbnails [selectedIndex].GetComponent<Drone> ().set (drone.GetComponent<Drone>().raw);
 	}
 
+
 }
