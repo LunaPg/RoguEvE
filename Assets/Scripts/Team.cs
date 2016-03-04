@@ -26,13 +26,10 @@ public class Team : MonoBehaviour {
 	public List<string> teamRaw = new List<string>();
 	public bool loadDronesOnStart = false;
 	public GameObject DronePrefab;
-	string fileUrl;
 
 	int selectedIndex;
 
 	void Start () {
-		fileUrl = Application.persistentDataPath + "/team.dat";
-
 		team.Add (drone1);
 		team.Add (drone2);
 		team.Add (drone3);

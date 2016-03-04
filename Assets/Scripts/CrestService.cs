@@ -78,7 +78,7 @@ public class CrestService : MonoBehaviour {
 		JSONNode response = JSON.Parse (www.text);
 		Hostile rifter = new Hostile ();
 		rifter.eveId = int.Parse (rifterId);
-		rifter.set (response);
+		//rifter.set (response);
 		this.rifter = response;
 		Debug.Log (rifter.name + " hp: " + rifter.hp);
 		onComplete ();
