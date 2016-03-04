@@ -1,0 +1,45 @@
+[English]
+  AI_FIGHT_START_1:
+    "The hostile Capsuleer has fallen in range of our Stasis Lock Cannon !"
+  AI_FIGHT_START_2:
+    "Deploy your Drones and protect the Hive !"
+  AI_HOSTILE_DETECTED:
+    "Our D-scan shows a hostile entity is approaching the Hive."
+  AI_HOSTILE_IS_AMARR_FRIGATE:
+    "Further scanning reveals the hostile is piloting a Frigate from the Amarr Empire."
+  AI_HOSTILE_IS_CALDARI_FRIGATE:
+    "Further scanning reveals the hostile is piloting a Frigate from the Caldari State."
+  AI_HOSTILE_IS_GALLENTE_FRIGATE:
+    "Further scanning reveals the hostile is piloting a Frigate from the Gallente Federation."
+  AI_HOSTILE_IS_MINMATAR_FRIGATE:
+    "Further scanning reveals the hostile is piloting a Frigate from the Minmatar Republic."
+  AI_HOSTILE_TIP_FRIGATE:
+    "Frigates tend to have low EM shield and EXP armor resists."
+  AI_FIGHT_WIN_1:
+    "You have successfuly protected the Hive !"
+  AI_FIGHT_WIN_2:
+    "Good work. Now let's scavenge these wrecks."
+  AI_FIGHT_WIN_3:
+    "You have eradicated the Capsuleer menace !"
+  AI_FIGHT_LOOSE:
+    "The Hive has fallen. You have failed to protect it."
+  APP_TITLE:
+    "RoguEvE"
+  APP_CREDITS:
+    "rDyne & Eelai Nova"
+  HIVE_INSTRUCTIONS_1:
+    "You must assemble a team of Drones to defend the Hive against hostile entities."
+  HIVE_INSTRUCTIONS_2:
+    "Click a Drone slot from the left, then click the drone you want to assign in the right list."
+  HIVE_MEDIUM_DRONES_AVAILABLE:
+    "We have gathered enough materials from the wrecks to start researching into better defense systems."
+  HIVE_HEAVY_DRONES_AVAILABLE:
+    "We have analyzed enough battles to improve our defenses even further."
+  HIVE_SALVAGE_DRONES_AVAILABLE:
+    "We have gathered an intact Salvager module from this wreck."
+  HIVE_SHIELDREP_DRONES_AVAILABLE:
+    "We have gathered an intact Remote Shield Repairer module from this wreck."
+  HIVE_ARMORREP_DRONES_AVAILABLE:
+    "We have gathered an intact Remote Armor Repairer module from this wreck."
+  HIVE_RESISTSCAN_AVAILABLE:
+    "We have computed enough wreck defense systems to better analyze hostile resistances pattern."
